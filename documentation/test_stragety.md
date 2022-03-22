@@ -1,7 +1,14 @@
 #Test Strategy Document
 
 ###Naming Conventions
-1. No abbreviations (example: first_name instead of fir_na).
+1. No abbreviations in variable, function, or directory names. (example: first_name instead of fir_na).
+2. Variables start with nouns, functions/methods start with verbs.
+3. Follow general Python naming conventions (ie snake_case for variables/module names, camelCase for classes, etc.)
+4. A module should start with the layer it is in (ie data_customer or dal_customer).
+   1. You may use an abbreviation of the layer in the module name.
+      1. data access layer -> dal
+      2. service layer -> serl
+      3. API layer -> api
 
 ###Reporting and Fixing Bugs
 1. Bugs should be reported via GitHub's Issues framework.
@@ -21,7 +28,13 @@
 
 ###API Endpoints
 1. Follow naming convention rules.
+2. Follow RESTful conventions. 
 
 ###Best Practices
 1. Check the GitHub repository consistently.
-2. Get some sleep.
+2. Get some sleep and eat.
+3. File structure should be as follows:
+   1. Layer Directory (ie data_access_layer)
+      1. all modules (ie dal_customer)
+   There should be no directories within directories (except for custom_exceptions in utilities).
+4. Communicate! :clap:
