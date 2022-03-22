@@ -27,8 +27,10 @@
 6. Once the bug is fixed, comment briefly how it was fixed, then click 'Close Issue with Comment' on the GitHub Issues page. 
 
 ###API Endpoints
-1. Follow naming convention rules.
-2. Follow RESTful conventions. 
+1. Do not use abbreviations.
+2. Do not use verbs in URIs (those will be in the header of the HTTP request).
+3. General format is: <object>/<identifer>/etc (ie customer/5/account/7).
+4. For cases not explicitly stated here, refer to RESTful conventions.
 
 ###Best Practices
 1. Check the GitHub repository consistently.
