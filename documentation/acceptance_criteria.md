@@ -26,8 +26,7 @@
 - WHEN: I am directed to the reimbursement form page,
 - WHEN: I click on the reimbursement reason drop down menu,
 - WHEN: I select my reimbursement reason,
-- WHEN: I click the 'Upload' button,
-- WHEN: I upload my receipt or other proof of the transaction, 
+- WHEN: I enter a reimbursement comment,
 - WHEN: I click the 'Submit Reimbursement Request' button,
 - THEN: I am directed to a confirmation page with a request number.
 
