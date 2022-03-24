@@ -9,6 +9,8 @@
 ##Deadlines
 
 ###Sprint 1 End: March 25, 2022
+- All skeletons created.
+  - Interface, implementation, and tests should have methods named with pass, no actual implementations needed.
 
 ###Sprint 2 End: April 1st, 2022
 
