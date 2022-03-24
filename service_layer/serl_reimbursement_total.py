@@ -1,3 +1,4 @@
+from entities.reimbursement_data import ReimbursementData
 from entities.reimbursement_totals_interfaces import ReimbursementTotalsServiceInterface
 from data_access_layer.dal_reimbursement_total import ReimbursementTotalsDataImplementation
 from utilities.custom_exceptions.total_is_zero import TotalIsZero
@@ -24,3 +25,5 @@ class ReimbursementTotalsServiceImplementation(ReimbursementTotalsServiceInterfa
         except TypeError:
             raise TotalIsZero("You have no pending reimbursements.")
 
+    def check_full_history(self, employee_id: str) -> [ReimbursementData]:
+        pass

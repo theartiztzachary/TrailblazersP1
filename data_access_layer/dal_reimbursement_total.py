@@ -15,3 +15,6 @@ class ReimbursementTotalsDataImplementation(ReimbursementTotalsDataInterface):
         cursor.execute(sql_query, [employee_id])
         total = cursor.fetchone()
         return total
+
+    def get_all_reimbursements(self, employee_id: int) -> list:
+        pass

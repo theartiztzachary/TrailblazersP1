@@ -42,3 +42,14 @@ def test_failure_service_no_pending_total():
         assert False
     except TotalIsZero as exception:
         assert str(exception) == "You have no pending reimbursements."
+
+def test_success_data_complete_reimbursement_history():
+    list_result = test_totals_data_implementation.get_all_reimbursements(1)
+    assert list_result == [(2, 1, 75, 'hotel', 'stayed night at the Hilton', 'approved'), (3, 1, 140, 'flying', 'flew to next game', 'approved')]
+
+def test_success_service_complete_reimbursement_history():
+    test_totals_service_implementation.data_implementation.get_all_reimbursements = MagicMock(return_value=[(2, 1, 75, 'hotel', 'stayed night at the Hilton', 'approved'), (3, 1, 140, 'flying', 'flew to next game', 'approved')])
+    pass
+
+def test_failure_service_no_history():
+    pass
