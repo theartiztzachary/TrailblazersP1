@@ -1,0 +1,4 @@
+from entities.reimbursement_totals_interfaces import ReimbursementTotalsDataInterface
+
+class ReimbursementTotalsDataImplementation(ReimbursementTotalsDataInterface):
+    pass
