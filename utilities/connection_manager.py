@@ -1,6 +1,7 @@
 from psycopg import connect, OperationalError
 import os
 
+
 def create_connection():
     try:
         conn = connect(
@@ -13,6 +14,7 @@ def create_connection():
         return conn
     except OperationalError:
         print("Something went wrong with the connection.")
+
 
 connection = create_connection()
 
