@@ -8,8 +8,8 @@ from utilities.connection_manager import connection
 
 class ReimbursementDAOImp(ReimbursementDAOInterface):
 
-    def __init__(self, reimbursement_dao: ReimbursementData):
-        self.reimbursement_dao = reimbursement_dao
+    # def __init__(self, reimbursement_dao: ReimbursementData):
+    #     self.reimbursement_dao = reimbursement_dao
 
     def cancel_reimbursement_request(self, reimbursement_id: int):
         # Look through the database; make sure id matches to the one inputted; update status code; return True
