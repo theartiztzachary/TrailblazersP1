@@ -6,17 +6,17 @@ from service_layer.employee_serl_imp import EmployeeServiceLayerImp
 from utilities.custom_exceptions.bad_reimbursement_request import BadReimbursementRequest
 
 employee_dao = EmployeeDAOImp()
-employee_serl = EmployeeServiceLayerImp()
+employee_serl = EmployeeServiceLayerImp(employee_dao)
 
 
 
 
 def test_serl_submit_reimbursement():
-    employee_serl.employee_dao.submit_reimbursement = MagicMock(return_value=ReimbursementData(0, 1, 100.00, "Hotel", "stayed in HamptonInn", "pending"))
+    employee_serl.dao_imp.submit_reimbursement = MagicMock(return_value=ReimbursementData(0, 1, 100.00, "Hotel", "stayed in HamptonInn", "pending"))
     employee_serl.serl_submit_reimbursement(ReimbursementData(int(0), int(1), float(100.00), "abc", "abc", "abc"))
-    employee_serl.serl_submit_reimbursement.assert_called_with()
+    employee_serl.dao_imp.submit_reimbursement.assert_called_with(1) # <-add the number you are looking for :)
 
-def test_serl_catch_non_numeric_string_typecasted():
+def test_serl_catch_numeric_string_typecasted():
     pass
 
 def test_serl_catch_non_numeric_string_not_typecasted():
