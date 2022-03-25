@@ -10,6 +10,11 @@ class ReimbursementServiceImp(ReimbursementServiceInterface):
     def service_cancel_reimbursement_request(self, request_number: int) -> bool:
         pass
 
-
+# taking in reimbursement ID
+    # send reimbursement ID down to data layer
+    # data layer will send back a 1 or a 0
+    # what do we do with a 1
+    # what do we do with a 0 
+# sending back a bool
 
 

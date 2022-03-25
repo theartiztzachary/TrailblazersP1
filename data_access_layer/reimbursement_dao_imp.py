@@ -3,6 +3,8 @@ from data_access_layer.reimbursement_dao_interface import ReimbursementDAOInterf
 from entities.reimbursement_data import ReimbursementData
 from utilities.connection_manager import connection
 
+# Send an sql query to update a reimbursement's status code.
+# Return and send how many rows were updated.
 
 class ReimbursementDAOImp(ReimbursementDAOInterface):
 
@@ -15,6 +17,8 @@ class ReimbursementDAOImp(ReimbursementDAOInterface):
         cursor = connection.cursor()
         cursor.execute(sql, [reimbursement_id])
         connection.commit()
+        # return cursor.rowcount
+        # Below this belongs in the service layer because it's validating.
         if cursor.rowcount != 0:  # rowcount tells us how many rows were changed
             return True
         else:

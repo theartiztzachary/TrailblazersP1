@@ -22,6 +22,9 @@ def test_status_code_update():
     else:
         return False
 
+# test if returned rowcount == 1 or > 0 (positive)
+# test if returned rowcount == 0 or < 1 (negative)
+
 
 # Negative
 # Test that when you give a reimbursement ID that does not exist, an empty return is passed up to the service layer.
