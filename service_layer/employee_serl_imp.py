@@ -11,7 +11,7 @@ class EmployeeServiceLayerImp(EmployeeServiceLayerInterface):
 
     def serl_submit_reimbursement(self, reimbursements: ReimbursementData) -> ReimbursementData:
         reimbursement_amount = reimbursements.amount
-        start_decimal = false
+        start_decimal = False
         decimal_count = 0
         try:
             reimbursements.reimbursement_id = int(reimbursements.reimbursement_id)
@@ -24,9 +24,9 @@ class EmployeeServiceLayerImp(EmployeeServiceLayerInterface):
 
         # start_decimal = false
         # decimal_count = 0
-        for i in reimbursement_amount:
+        for i in str(reimbursement_amount):
             if i == ".":
-                start_decimal = true
+                start_decimal = True
             if start_decimal:
                 decimal_count += 1
         if decimal_count > 2:
