@@ -31,9 +31,8 @@ class ReimbursementTotalsServiceImplementation(ReimbursementTotalsServiceInterfa
         return_list = []
         employee_id_int = int(employee_id)
         history_return = self.data_implementation.get_all_reimbursements(employee_id_int)
-        try:
+        if len(history_return) > 0:
             for i in range(len(history_return)):
                 return_list.append(ReimbursementData(*history_return[i]))
             return return_list
-        except TypeError:
-            raise NoHistory("You have no reimbursement history.")
+        raise NoHistory("You have no reimbursement history.")

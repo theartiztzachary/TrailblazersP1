@@ -28,7 +28,7 @@ def test_success_service_completed_total():
 def test_success_service_pending_total():
     test_totals_service_implementation.data_implementation.get_pending_reimbursement_total = MagicMock(return_value=(Decimal('500'),))
     money_total = test_totals_service_implementation.check_pending_reimbursement_total("5")
-    test_totals_service_implementation.data_implementation.get_pending_reimbursement_total.assert_called_with((5))
+    test_totals_service_implementation.data_implementation.get_pending_reimbursement_total.assert_called_with(5)
     assert money_total == 500
 
 def test_failure_service_no_completed_total():
@@ -59,7 +59,7 @@ def test_success_service_complete_reimbursement_history():
     assert result_list[1].reimbursement_id == 3
 
 def test_failure_service_no_history():
-    test_totals_service_implementation.data_implementation.get_all_reimbursements = MagicMock(return_value=(None))
+    test_totals_service_implementation.data_implementation.get_all_reimbursements = MagicMock(return_value=tuple())
     try:
         full_history = test_totals_service_implementation.check_full_history("5")
         assert False
