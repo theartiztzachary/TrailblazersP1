@@ -7,27 +7,16 @@ from utilities.custom_exceptions.incorrect_password import IncorrectPassword
 class LogInServiceLayerImplementation(LogInServiceLayerInterface):
 
     def __init__(self, login_data_access_object: LogInDataAccessLayerImplementation):
-
         self.login_data_access_object = login_data_access_object
 
     def service_select_employee_information(self, username: str, password: str):
         result = self.login_data_access_object.select_employee_information(username)
-        unpacked_result_level_one = result[0] #Unpacking either list(None) or List(tuple(password))
+        unpacked_result_level_one = result[0]  #Unpacking either list(None) or List(tuple(password))
         if unpacked_result_level_one is None:
             raise EmployeeNotFound("The employee username could not be found within the database. Please try again.")
         else:
-            unpacked_result_level_two = unpacked_result_level_one[0] #Unpacking tuple(password)
+            unpacked_result_level_two = unpacked_result_level_one[0]  #Unpacking tuple(password)
             if unpacked_result_level_two == password:
                 return True
             else:
                 raise IncorrectPassword("The password you have given is incorrect. Please try again.")
-
-    # def convert_to_dictionary(self):
-    #     return{
-    #     "employee_username":
-
-        #}
-
-
-
-

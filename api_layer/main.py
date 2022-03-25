@@ -1,5 +1,4 @@
 from flask import Flask, jsonify, request
-
 from data_access_layer.dal_login_implementation import LogInDataAccessLayerImplementation
 from service_layer.serl_login_implementation import LogInServiceLayerImplementation
 from utilities.custom_exceptions.employee_not_found import EmployeeNotFound
@@ -34,10 +33,6 @@ def select_employee_information():
             "message": str(e)
         }
         return jsonify(message), 400
-
-
-
-
 
 
 app.run()

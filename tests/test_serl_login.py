@@ -31,5 +31,3 @@ def test_select_employee_information_incorrect_password(): #MOCKED
         assert False
     except IncorrectPassword as e:
         assert str(e) == "The password you have given is incorrect. Please try again."
-
-

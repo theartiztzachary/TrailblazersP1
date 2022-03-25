@@ -11,5 +11,3 @@ class LogInDataAccessLayerImplementation(LogInDataAccessLayerInterface):
         employee_password = cursor.fetchone()
         result_list = [employee_password]
         return result_list
-
-

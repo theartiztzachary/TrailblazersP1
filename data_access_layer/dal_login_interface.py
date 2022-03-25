@@ -6,5 +6,3 @@ class LogInDataAccessLayerInterface(ABC):
     @abstractmethod
     def select_employee_information(self, username: str):
         pass
-
-
