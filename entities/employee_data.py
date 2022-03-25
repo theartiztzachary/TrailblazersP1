@@ -9,3 +9,6 @@ class EmployeeData:
         self.employee_username = employee_username
         self.employee_password = employee_password
 
+
+    # def convert_to_dictionary
+

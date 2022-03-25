@@ -1,5 +1,5 @@
 from data_access_layer.dal_login_implementation import LogInDataAccessLayerImplementation
-from utilities.custom_exceptions.employee_not_found import EmployeeNotFound
+
 
 LogIn_data_access_object = LogInDataAccessLayerImplementation()
 

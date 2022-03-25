@@ -22,6 +22,12 @@ class LogInServiceLayerImplementation(LogInServiceLayerInterface):
             else:
                 raise IncorrectPassword("The password you have given is incorrect. Please try again.")
 
+    # def convert_to_dictionary(self):
+    #     return{
+    #     "employee_username":
+
+        #}
+
 
 
 
