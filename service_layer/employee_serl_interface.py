@@ -6,8 +6,6 @@ from entities.reimbursement_data import ReimbursementData
 
 class EmployeeServiceLayerInterface(ABC):
 
-    def __init__(self, employee_dao: EmployeeDAOInterface):
-        self.employee_dao = employee_dao
 
     @abstractmethod
     def serl_submit_reimbursement(self, reimbursements: ReimbursementData) -> ReimbursementData:

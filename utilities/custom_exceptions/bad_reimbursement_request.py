@@ -1,0 +1,2 @@
+class BadReimbursementRequest(Exception):
+    pass
