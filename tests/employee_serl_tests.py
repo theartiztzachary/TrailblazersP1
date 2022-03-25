@@ -22,13 +22,21 @@ def test_serl_catch_numeric_string_typecasted():
 def test_serl_catch_non_numeric_string_not_typecasted():
     pass
 
-def test_serl_reimbursement_amount_range():
+def test_serl_reimbursement_amount_above_the_limit():
     reimbursementdata = ReimbursementData(0, 1, 10000.00, "Hotel", "stayed in HamptonInn", "pending")
     try:
         employee_serl.serl_submit_reimbursement(reimbursementdata)
         assert False
     except BadReimbursementRequest as e:
-        assert str(e)
+        assert str(e) == "Please enter a amount less than 1000"
+
+def test_serl_reimbursement_amount_below_the_limit():
+    reimbursementdata = ReimbursementData(0, 1, -100, "Hotel", "stayed in HamptonInn", "pending")
+    try:
+        employee_serl.serl_submit_reimbursement(reimbursementdata)
+        assert False
+    except BadReimbursementRequest as e:
+        assert str(e) == "Please enter a amount greater than 1"
 
 def test_serl_reimbursement_amount_decimal_digits():
     pass
@@ -39,7 +47,7 @@ def test_serl_length_of_comments():
         employee_serl.serl_submit_reimbursement(reimburesementdata)
         assert False
     except BadReimbursementRequest as e:
-        assert str(e)
+        assert str(e) == "Please enter a comment less than 100 characters"
 
 
 

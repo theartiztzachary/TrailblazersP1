@@ -35,6 +35,10 @@ class EmployeeServiceLayerImp(EmployeeServiceLayerInterface):
             raise BadReimbursementRequest("Please enter a amount less than 1000")
         if reimbursement_amount >= 1:
             raise BadReimbursementRequest("Please enter a amount greater than 1")
+        if len(reimbursements.comment > 100):
+            raise BadReimbursementRequest("Please enter a comment less than 100 characters")
+
+
 
 
 
