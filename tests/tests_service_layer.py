@@ -3,7 +3,7 @@ from data_access_layer.reimbursement_dao_imp import ReimbursementDAOImp
 from service_layer.reimbursement_service_imp import ReimbursementServiceImp
 
 reimbursement_dao = ReimbursementDAOImp()
-reimbursement_service = ReimbursementServiceImp()
+reimbursement_service = ReimbursementServiceImp(reimbursement_dao)
 
 
 # Positive:
