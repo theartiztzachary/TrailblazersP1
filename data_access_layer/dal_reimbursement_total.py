@@ -17,4 +17,8 @@ class ReimbursementTotalsDataImplementation(ReimbursementTotalsDataInterface):
         return total
 
     def get_all_reimbursements(self, employee_id: int) -> list:
-        pass
+        sql_query = "select * from reimbursements where employee_id = %s"
+        cursor = connection.cursor()
+        cursor.execute(sql_query, [employee_id])
+        history = cursor.fetchall()
+        return history
