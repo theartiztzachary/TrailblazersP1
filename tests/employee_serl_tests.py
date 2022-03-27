@@ -8,14 +8,15 @@ from utilities.custom_exceptions.bad_reimbursement_request import BadReimburseme
 employee_dao = EmployeeDAOImp()
 employee_serl = EmployeeServiceLayerImp(employee_dao)
 
+mocking_object = ReimbursementData("0", "1", "100.00", "Hotel", "stayed in HamptonInn", "pending")
 
 
+def test_serl_submit_reimbursement():
+    employee_serl.dao_imp.submit_reimbursement = MagicMock(return_value=mocking_object)
+    result_data = employee_serl.serl_submit_reimbursement(mocking_object)
+    assert result_data.reimbursement_id == 0
+    # employee_serl.dao_imp.submit_reimbursement.assert_called_with(mocking_object) # <-add the number you are looking for :)
 
-# def test_serl_submit_reimbursement():
-#     employee_serl.dao_imp.submit_reimbursement = MagicMock(return_value=ReimbursementData(0, 1, 100.00, "Hotel", "stayed in HamptonInn", "pending"))
-#     employee_serl.serl_submit_reimbursement(ReimbursementData(int(0), int(1), float(100.00), "abc", "abc", "abc"))
-#     employee_serl.dao_imp.submit_reimbursement.assert_called_with(1) # <-add the number you are looking for :)
-#
 # def test_serl_catch_numeric_string_typecasted():
 #     employee_serl.dao_imp.submit_reimbursement = MagicMock(return_value=ReimbursementData(2, 1, 75.00, "hotel", "stayed at Hilton", "approved"))
 #
@@ -30,7 +31,7 @@ employee_serl = EmployeeServiceLayerImp(employee_dao)
 
 
 def test_serl_reimbursement_amount_above_the_limit():
-    reimbursementdata = ReimbursementData(0, 1, 10000.00, "Hotel", "stayed in HamptonInn", "pending")
+    reimbursementdata = ReimbursementData("0", "1", "10000.00", "Hotel", "stayed in HamptonInn", "pending")
     try:
         employee_serl.serl_submit_reimbursement(reimbursementdata)
         assert False
