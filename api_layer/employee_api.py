@@ -1,6 +1,7 @@
 from flask import Flask, request, jsonify
 
 from data_access_layer.employee_dao_imp import EmployeeDAOImp
+from entities.reimbursement_data import ReimbursementData
 from service_layer.employee_serl_imp import EmployeeServiceLayerImp
 from utilities.custom_exceptions.bad_reimbursement_request import BadReimbursementRequest
 
@@ -9,13 +10,14 @@ app: Flask = Flask(__name__)
 employee_dao = EmployeeDAOImp()
 employee_serl = EmployeeServiceLayerImp(employee_dao)
 
+
 @app.route("/reimbursements", methods=["POST"])
 def submit_reimbursement_record():
     try:
         reimbursement_data_info = request.get_json()
-        reimbursement = Reimbursement(
+        reimbursement = ReimbursementData(
             reimbursement_data_info["reimbursementId"],
-            reimbursement_data_info["employeeID"],
+            reimbursement_data_info["employeeId"],
             reimbursement_data_info["amount"],
             reimbursement_data_info["reason"],
             reimbursement_data_info["reimbursementComment"],
@@ -26,10 +28,11 @@ def submit_reimbursement_record():
         reimbursement_json = jsonify(dictionary_reimbursement)
         return reimbursement_json, 201
     except BadReimbursementRequest as e:
-        return_message = {
+        error_message = {
             "message": str(e)
         }
-return jsonify(return_message), 404
+        error_json = jsonify(error_message)
+        return error_json, 404
+
 
 app.run()
-
