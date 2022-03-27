@@ -3,6 +3,10 @@ from entities.reimbursement_data import ReimbursementData
 from service_layer.employee_serl_interface import EmployeeServiceLayerInterface
 from utilities.custom_exceptions.bad_reimbursement_request import BadReimbursementRequest
 
+"""
+object = Object(version_number = 1)
+object.version_number
+"""
 
 class EmployeeServiceLayerImp(EmployeeServiceLayerInterface):
 
@@ -50,6 +54,15 @@ class EmployeeServiceLayerImp(EmployeeServiceLayerInterface):
         # if amount <= 1000 and amount >= 1
             # code here
         # raise error
+
+
+
+    # def get_reimbursement_data(reimbursement_id: int):
+        #call on the data access object's method to get the data from the database
+        #returuend_data = data_access_object.get_reimbursement_data
+        #returned_data.reimbursement_id
+        #returned_data.ammount
+        #etc
 
 
 

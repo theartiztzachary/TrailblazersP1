@@ -14,7 +14,7 @@ class EmployeeDAOImp(EmployeeDAOInterface):
         return reimbursements
 
 
-    def get_reimbursement_info_by_id(self, reimbursement_id: int) -> ReimbursementData | None:
+    def get_reimbursement_info_by_id(self, reimbursement_id: int) -> ReimbursementData or None:
         sql = "select * from reimbursements where reimbursement_id = %s"
         cursor = connection.cursor()
         cursor.execute(sql, [reimbursement_id])
