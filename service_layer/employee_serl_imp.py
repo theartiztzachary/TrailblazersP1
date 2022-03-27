@@ -27,16 +27,20 @@ class EmployeeServiceLayerImp(EmployeeServiceLayerInterface):
         for i in str(reimbursement_amount):
             if i == ".":
                 start_decimal = True
+                continue
             if start_decimal:
                 decimal_count += 1
         if decimal_count > 2:
             raise BadReimbursementRequest("Please enter amount with 2 decimal values")
-        if reimbursement_amount >= 1000:
+        if reimbursements.amount >= 1000:
             raise BadReimbursementRequest("Please enter a amount less than 1000")
-        if reimbursement_amount <= 1:
+        if reimbursements.amount <= 1:
             raise BadReimbursementRequest("Please enter a amount greater than 1")
         if len(reimbursements.reimbursement_comment) > 100:
             raise BadReimbursementRequest("Please enter a comment less than 100 characters")
+
+        returned_data = self.dao_imp.submit_reimbursement(reimbursements)
+        return returned_data
 
         # for character in reimbursement_amount temporary holder is still a string version of the amount
         # if the character is '.'
