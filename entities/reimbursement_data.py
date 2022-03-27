@@ -6,3 +6,13 @@ class ReimbursementData:
         self.reason = reason
         self.reimbursement_comment = reimbursement_comment
         self.status_code = status_code
+
+    def reimbursementdata_to_dictionary(self):
+        return {
+            "reimbursementId": self.reimbursement_id,
+            "employeeId": self.employee_id,
+            "amount": self.amount,
+            "reason": self.reason,
+            "reimbursementComment": self.reimbursement_comment,
+            "statusCode": self.status_code
+        }
