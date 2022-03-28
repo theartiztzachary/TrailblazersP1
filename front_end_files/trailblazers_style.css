@@ -1,0 +1,59 @@
+/* revature orange: 242, 105, 38*/
+
+.container-header {
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    text-align: center;
+    background: tomato;
+}
+
+.container-header > * {
+    padding: 10px;
+    flex: 1 100%;
+}
+
+.container-body {
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    text-align: center;
+}
+
+.container-body > * {
+    padding: 10px;
+    flex: 1 100%;
+}
+
+.container-footer {
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    text-align: center;
+    background: lightgreen;
+}
+
+.container-footer > * {
+    display: flex;
+    flex-direction: row;
+    font-weight: bold;
+    text-align: center;
+    background: hotpink;
+}
+
+.information {
+    text-align: left;
+    background: deepskyblue;
+    flex: 2 0px;
+    order: 1;
+}
+
+.home-image {
+    background: gold;
+    flex: 3 0px;
+    order: 2;
+}
+
+body {
+    padding: 2em;
+}
