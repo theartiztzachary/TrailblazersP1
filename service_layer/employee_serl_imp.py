@@ -17,8 +17,8 @@ class EmployeeServiceLayerImp(EmployeeServiceLayerInterface):
             reimbursements.reimbursement_id = int(reimbursements.reimbursement_id)
             reimbursements.employee_id = int(reimbursements.employee_id)
             reimbursements.amount = float(reimbursements.amount)
-        except TypeError:
-            raise BadReimbursementRequest("Please enter numeric value")
+        except ValueError:
+            raise BadReimbursementRequest("Please enter numeric value for reimbursement_id,employee_id and float value for amount")
 
             # whatever you want to do to deal with what happens if you are given a non-numeric string
 
