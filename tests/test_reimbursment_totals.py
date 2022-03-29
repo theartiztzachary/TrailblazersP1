@@ -11,6 +11,8 @@ from utilities.custom_exceptions.no_history import NoHistory
 test_totals_data_implementation = ReimbursementTotalsDataImplementation()
 test_totals_service_implementation = ReimbursementTotalsServiceImplementation(test_totals_data_implementation)
 
+# If these first two tests fail, that is because extra data has been added to the database as of the test being written.
+
 def test_success_data_completed_total():
     money_total = test_totals_data_implementation.get_completed_reimbursement_total(1)
     assert money_total == (Decimal('215'),)
