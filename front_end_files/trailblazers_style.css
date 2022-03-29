@@ -43,15 +43,43 @@
 
 .information {
     text-align: left;
-    background: deepskyblue;
+    background: white;
     flex: 2 0px;
     order: 1;
 }
 
-.home-image {
-    background: gold;
-    flex: 3 0px;
+.logo-holder {
+    flex: 1 0px;
     order: 2;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+}
+
+.logo-icon {
+    flex: 1 0px;
+    order: 1;
+    width: 5em;
+}
+
+.office-icon {
+    flex: 1 0px;
+    order: 2;
+    background-image: url("office_stock.jpg");
+    border-radius: 0px 0px 0px 0px;
+}
+
+.home-image {
+    background: rgb(242, 105, 38);
+    border-radius: 300px 0px 0px 300px;
+    flex: 3 0px;
+    order: 3;
+}
+
+.white-background {
+    background: white;
+    border-radius: 50% 0% 0% 50%;
+    width: 75%;
 }
 
 body {
