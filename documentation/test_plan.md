@@ -1,10 +1,10 @@
 # Test Plan Document
 
 ##Technologies Used
-- Languages: Python, PostgreSQL
-- Packages: PsycoPG[Binary], Pytest, Flask
-- IDE: PyCharm
-- Tertiary Programs: DBeaver, Postman, AWS Database, AWS E2, GitHub, GitBash, Zoom, Discord, [front end placeholder :)]]
+- Languages: Python, PostgreSQL, HTML, CSS, Javascript
+- Packages: PsycoPG[Binary], Pytest, Flask, Flask-Cors
+- IDE: PyCharm, Visual Studio Code
+- Tertiary Programs: DBeaver, Postman, AWS Database, AWS E2, GitHub, GitBash, Zoom, Discord
 
 ##Deadlines
 
@@ -13,6 +13,8 @@
   - Interface, implementation, and tests should have methods named with pass, no actual implementations needed.
 
 ###Sprint 2 End: April 1st, 2022
+For the end of this week/sprint, we will have the Javascript scripts set up for each functionality.
+  - Each person is responsible for the Javascript that is associated with their assigned function.
 
 ###Sprint 3 End: April 7th, 2022
 
