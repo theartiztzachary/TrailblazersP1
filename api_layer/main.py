@@ -13,7 +13,7 @@ login_data_access_object = LogInDataAccessLayerImplementation()
 login_service = LogInServiceLayerImplementation(login_data_access_object)
 
 
-@app.route("/employee", methods=["GET", "POST"])
+@app.route("/employee", methods=["POST"])
 def select_employee_information():
     try:
         employee = request.get_json()
@@ -25,7 +25,7 @@ def select_employee_information():
         }
         result_json = jsonify(result_dictionary)
         print("HELLO")
-        return result_json, 200, 201
+        return result_json, 200
 
     except EmployeeNotFound as e:
         message = {
