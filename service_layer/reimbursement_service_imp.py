@@ -3,18 +3,18 @@ from service_layer.reimbursement_service_interface import ReimbursementServiceIn
 
 
 class ReimbursementServiceImp(ReimbursementServiceInterface):
-    def __init__(self, reimbursement_obj: ReimbursementDAOImp):
-        self.reimbursement_obj = reimbursement_obj
+    def __init__(self, reimbursement_dao: ReimbursementDAOImp):
+        self.reimbursement_dao = reimbursement_dao
 
     #  check to make sure request_number is in database; if true, return true, else return false
-    def service_cancel_reimbursement_request(self, request_number: int) -> bool:
-        pass
+    def service_cancel_reimbursement_request(self, reimbursement_id: int) -> bool:
+        result = self.reimbursement_dao.cancel_reimbursement_request(reimbursement_id)
+        if result == "canceled":
+            return True
+        else:
+            return False
 
-# taking in reimbursement ID
-    # send reimbursement ID down to data layer
-    # data layer will send back a 1 or a 0
-    # what do we do with a 1
-    # what do we do with a 0 
-# sending back a bool
+
+
 
 
