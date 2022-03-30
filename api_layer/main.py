@@ -10,13 +10,16 @@ reimbursement_dao = ReimbursementDAOImp()
 reimbursement_service = ReimbursementServiceImp(reimbursement_dao)
 
 
-@app.route("/cancel/employee_id/reimbursement_id", methods=["PATCH"])  # or /cancel/reimbursement_id"
-def cancel_reimbursement_request():
+@app.route("/cancel/employee_id/<reimbursement_id>", methods=["PATCH"])  # or /cancel/reimbursement_id"
+def cancel_reimbursement_request(reimbursement_id: int):
     try:
-        pass
+        result = reimbursement_service.service_cancel_reimbursement_request(reimbursement_id)
+        result_dictionary = {"Canceled Request": result}
+        result_json = jsonify(result_dictionary)
+        return result_json, 200
     except IdNotFound as e:
         error_message = {
             "message": str(e)
         }
         error_json = jsonify(error_message)
-        return error_json, 404
+        return error_json, 400
