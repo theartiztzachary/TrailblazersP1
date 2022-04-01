@@ -1,4 +1,4 @@
-from flask import Flask, jsonify, request
+from flask import Flask, jsonify
 from flask_cors import CORS
 
 from data_access_layer.dal_login_implementation import LogInDataAccessLayerImplementation
@@ -13,19 +13,16 @@ login_data_access_object = LogInDataAccessLayerImplementation()
 login_service = LogInServiceLayerImplementation(login_data_access_object)
 
 
-@app.route("/employee", methods=["GET", "POST"])
-def select_employee_information():
+@app.route("/employee/<employeeUsername>/<employeePassword>/", methods=["GET"])
+def select_employee_information(employeeUsername: str, employeePassword: str):
     try:
-        employee = request.get_json()
-        employee_username = employee["employeeUsername"]
-        employee_password = employee["employeePassword"]
-        result = login_service.service_select_employee_information(employee_username, employee_password)
+        result = login_service.service_select_employee_information(employeeUsername, employeePassword)
         result_dictionary = {
             "result": result
         }
         result_json = jsonify(result_dictionary)
         print("HELLO")
-        return result_json, 200, 201
+        return result_json, 200
 
     except EmployeeNotFound as e:
         message = {

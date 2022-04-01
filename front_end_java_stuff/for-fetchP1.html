@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Log In</title>
+</head>
+<body>
+    <input type="text" id="employeeUsername" placeholder="Enter Username">
+    <br>
+    <input type="text" id="employeePassword" placeholder="Enter Password">
+    <br>
+    <button id="searchButton" onclick="logIn()">Submit</button>
+    
+</body>
+<script>
+    const searchButton = document.getElementById("searchButton");
+    const employeeUsername = document.getElementById("employeeUsername");
+    const employeePassword = document.getElementById("employeePassword");
+
+    let employeeInformation = {"employeeUsername":null, "employeePassword":null};
+    
+
+    async function logIn(){
+        
+        let requestURL = `http://localhost:5000/employee/${employeeUsername.value}/${employeePassword.value}/`
+
+        employeeInformation.employeeUsername = employeeUsername.value;
+        console.log(employeeUsername.value)
+       
+
+        
+        employeeInformation.employeePassword = employeePassword.value;
+        console.log(employeePassword.value)
+        
+
+        let config = {
+            method:"GET"  
+        }
+
+        const response = await fetch(requestURL, config);
+        if(response.status === 200){
+            //message = await response.text();
+            //alert(message);
+            window.location.href = "blank-page.html"
+        } else {
+            alert("Oops");
+        }
+    }
+
+
+
+
+</script>
+</html>
