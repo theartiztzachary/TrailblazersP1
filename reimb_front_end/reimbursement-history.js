@@ -3,6 +3,8 @@ const historyTable = document.getElementById("history-table")
 const pendingTotal = document.getElementById("pending-total")
 const approvedTotal = document.getElementById("approved-total")
 
+let generatedID = 0
+
 async function requestHistory() {
     let requestURL = `http://localhost:5000/employee/${numberInput.value}/reimbursements/all`;
     let response = await fetch(requestURL, {method:"GET"});
@@ -31,6 +33,8 @@ function populateHistory(data) {
             const square = document.createElement("td");
             square.textContent = element
             row.appendChild(square)
+            square.id = generatedID;
+            generatedID ++
         }
     }
 }
