@@ -18,12 +18,9 @@ class EmployeeServiceLayerImp(EmployeeServiceLayerInterface):
             reimbursements.employee_id = int(reimbursements.employee_id)
             reimbursements.amount = float(reimbursements.amount)
         except ValueError:
-            raise BadReimbursementRequest("Please enter numeric value for reimbursement_id,employee_id and float value for amount")
+            raise BadReimbursementRequest(
+                "Please enter numeric value for reimbursement_id,employee_id and float value for amount")
 
-            # whatever you want to do to deal with what happens if you are given a non-numeric string
-
-        # start_decimal = false
-        # decimal_count = 0
         for i in str(reimbursement_amount):
             if i == ".":
                 start_decimal = True
