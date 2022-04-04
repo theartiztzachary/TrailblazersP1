@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>History</title>
+</head>
+<body>
+    <input type="number" id="number-input">
+    <br>
+    <button id="history-button" onclick="requestHistory()">Get History</button>
+    <button id="pending-button" onclick="requestPending()">Get Pending Sum</button>
+    <button id="approved-button" onclick="requestApproved()">Get Approved Sum</button>
+    <br>
+    <table>
+        <thead>
+            <tr>
+                <th>Request ID</th>
+                <th>Amount</th>
+                <th>Reason</th>
+                <th>Note</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody id="history-table">
+
+        </tbody>
+    </table>
+    
+    <table>
+        <thead>
+            <tr>
+                <th>Pending</th>
+                <th>Approved</th>
+            </tr>
+        </thead>
+            <tr>
+                <td id="pending-total"></td>
+                <td id="approved-total"></td>
+            </tr>
+        <tbody>
+        
+        </tbody>
+    </table>
+
+    <script src="reimbursement-history.js"></script>
+</body>
+</html>

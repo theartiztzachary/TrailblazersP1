@@ -11,6 +11,7 @@ from utilities.custom_exceptions.no_history import NoHistory
 test_totals_data_implementation = ReimbursementTotalsDataImplementation()
 test_totals_service_implementation = ReimbursementTotalsServiceImplementation(test_totals_data_implementation)
 
+# --html=report_name.html --self-contained-html
 # If these first two tests fail, that is because extra data has been added to the database as of the test being written.
 
 def test_success_data_completed_total():
@@ -49,6 +50,7 @@ def test_failure_service_no_pending_total():
     except TotalIsZero as exception:
         assert str(exception) == "You have no pending reimbursements."
 
+# This test may fail if more data has been added to the database since the test was last run. :)
 def test_success_data_complete_reimbursement_history():
     list_result = test_totals_data_implementation.get_all_reimbursements(1)
     assert list_result == [(2, 1, Decimal('75.00'), 'hotel', 'stayed night at Hilton', 'approved'), (3, 1, Decimal('140.00'), 'flying', 'flew to the next game', 'approved'), (12, 1, Decimal('100.00'), 'hotel', 'stayed in HamptonInn', 'pending'), (13, 1, Decimal('100.00'), 'hotel', 'stayed in HamptonInn', 'pending')]
