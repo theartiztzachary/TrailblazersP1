@@ -11,6 +11,7 @@ from utilities.custom_exceptions.no_history import NoHistory
 test_totals_data_implementation = ReimbursementTotalsDataImplementation()
 test_totals_service_implementation = ReimbursementTotalsServiceImplementation(test_totals_data_implementation)
 
+# --html=report_name.html --self-contained-html
 # If these first two tests fail, that is because extra data has been added to the database as of the test being written.
 
 def test_success_data_completed_total():
