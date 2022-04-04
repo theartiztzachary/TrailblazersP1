@@ -5,13 +5,15 @@
     <link rel="stylesheet" href="employee-home-page-css.css">
 </head>
 <body onload="populatePage()">
-    <div id="button-container">
+    <h1 id="welcome-message"></h1>
+
+    <div class="container">
         <button id="submit-button" onclick="toSubmitPage()">Submit a Reimbursement</button>
         <button id="cancel-button" onclick="toCancelPage()">Cancel a Reimbursement</button>
         <button id="logout-button" onclick="logoutFunction()">Logout</button>
     </div>
 
-    <div id="full-info-table">
+    <div class="container">
         <table>
             <thead>
                 <tr>
@@ -28,7 +30,7 @@
         </table>
     </div>
     
-    <div id="totals-table">
+    <div class="container">
         <table>
             <thead>
                 <tr>

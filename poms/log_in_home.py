@@ -8,13 +8,13 @@ class LogInHome:
         self.driver = driver
 
     def employee_username_bar(self):
-        return self.driver.find_element(By.ID, "employeeUsername")
+        return self.driver.find_element(By.ID, "username-input")
 
     def employee_password_bar(self):
-        return self.driver.find_element(By.ID, "employeePassword")
+        return self.driver.find_element(By.ID, "password-input")
 
     def submit_button(self):
-        return self.driver.find_element(By.ID, "searchButton")
+        return self.driver.find_element(By.ID, "login-button")
 
     def get_title(self):
         return self.driver.title

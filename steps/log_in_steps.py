@@ -25,5 +25,5 @@ def step_impl(context):
 
 @then(u'I should be on a page with the title Home Screen')
 def step_impl(context):
-    WebDriverWait(context.driver, 1).until(title_contains("WELCOME"))
-    assert context.driver.title == "WELCOME"
+    WebDriverWait(context.driver, 1).until(title_contains("Trailblazers Reimbursement Systems - Home"))
+    assert context.driver.title == "Trailblazers Reimbursement Systems - Home"

@@ -1,5 +1,0 @@
-Host: trailblazersp1.cf9wrmawv6w7.us-west-1.rds.amazonaws.com
-DBname: postgres
-User: teammates
-Password: trailblaze
-Port: 5432
