@@ -73,3 +73,8 @@ async function requestApproved() {
 function populateApproved(data) {
     approvedTotal.textContent = data["Approved Total:"];
 }
+
+function logoutFunction() {
+    window.sessionStorage.clear;
+    window.location.href = "landing-page.html"
+}
