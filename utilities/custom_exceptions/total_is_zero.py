@@ -1,0 +1,2 @@
+class TotalIsZero(Exception):
+    pass

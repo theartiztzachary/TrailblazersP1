@@ -1,0 +1,2 @@
+class NoHistory(Exception):
+    pass
