@@ -11,7 +11,7 @@ login_service_object = LogInServiceLayerImplementation(login_data_access_object)
 def test_select_employee_information_success(): #MOCKED
     login_service_object.login_data_access_object.select_employee_information = MagicMock(return_value=[('Password',)])
     result = login_service_object.service_select_employee_information("AGator", "Password")
-    assert result is True
+    assert result == 1
 
 
 def test_select_employee_information_incorrect_username(): #MOCKED
@@ -31,3 +31,5 @@ def test_select_employee_information_incorrect_password(): #MOCKED
         assert False
     except IncorrectPassword as e:
         assert str(e) == "The password you have given is incorrect. Please try again."
+
+

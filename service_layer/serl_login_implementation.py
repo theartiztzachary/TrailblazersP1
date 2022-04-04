@@ -17,6 +17,11 @@ class LogInServiceLayerImplementation(LogInServiceLayerInterface):
         else:
             unpacked_result_level_two = unpacked_result_level_one[0]  #Unpacking tuple(password)
             if unpacked_result_level_two == password:
-                return True
+                result2 = self.login_data_access_object.select_employee_id(username)
+                unpacked_result_level_one = result2[0]
+                unpacked_employee_id_number = unpacked_result_level_one[0]  # Unpacking tuple(password)
+                return unpacked_employee_id_number
             else:
                 raise IncorrectPassword("The password you have given is incorrect. Please try again.")
+
+

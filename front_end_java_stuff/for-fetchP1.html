@@ -39,11 +39,12 @@
 
         const response = await fetch(requestURL, config);
         if(response.status === 200){
-            //message = await response.text();
-            //alert(message);
             window.location.href = "blank-page.html"
         } else {
-            alert("Oops");
+            message = await response.text();
+            let unpackedMessage2 = JSON.parse(message)
+
+            alert(unpackedMessage2.message);
         }
     }
 

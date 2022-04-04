@@ -17,11 +17,11 @@ login_service = LogInServiceLayerImplementation(login_data_access_object)
 def select_employee_information(employeeUsername: str, employeePassword: str):
     try:
         result = login_service.service_select_employee_information(employeeUsername, employeePassword)
+
         result_dictionary = {
-            "result": result
+            "message": result
         }
         result_json = jsonify(result_dictionary)
-        print("HELLO")
         return result_json, 200
 
     except EmployeeNotFound as e:
