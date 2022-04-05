@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Cancel Reimbursement</title>
+</head>
+<body>
+
+     <!--Static Content-->
+    <h1 style="text-align:center;">Welcome!</h1>
+    <h3 id="context">Enter your reimbursement ID number below to start the cancel reimbursement process.</h3>
+
+    <div id="idContainer">
+        <input type="number" placeholder="Enter reimbursement ID number here!" id="reimbursementID">
+        <button id="submitButton" onclick="sendReimbursementId()"> Submit</button>
+    </div>
+
+</body>
+<script>
+
+    /*Dynamic Content*/
+    
+    const cancelReimbursement = document.getElementById("submitButton")
+
+    /*request input of reimbursement ID here*/
+
+    let requestId = {1:"Reimbursement ID"}; 
+    let input = 1;
+
+    function addReimbursementId()
+    {
+    requestId[input] = cancelReimbursement.value;
+    console.log(cancelReimbursement.value)
+    cancelReimbursement.value ="";
+    }
+
+    async function sendReimbursementID()
+    {
+        const response = await fetch(
+            `http://localhost:5000/cancel/${cancelReimbursement.value}`,
+            {
+                method:"GET"
+            }
+        )
+        if(response.status == 200)
+        {
+            /* message = await response.json() */
+            message = await response.text()
+            /* alert(message.message); */
+            alert(message);
+        } else 
+        {
+            alert("Something went wrong, please try again");
+        }
+    }
+
+    
+
+
+</script>
+</html>
