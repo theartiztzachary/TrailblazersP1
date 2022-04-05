@@ -2,11 +2,13 @@ from selenium.webdriver.chrome.webdriver import WebDriver
 from selenium.webdriver.remote.webelement import WebElement
 from selenium.webdriver.common.by import By
 
-
-
 class SubmitHome:
     def __init__(self, driver: WebDriver):
         self.driver = driver
+
+    def start_submit(self):
+        element: WebElement = self.driver.find_element(By.ID, "submit-button")
+        return element
 
     def submit_employee_id(self):
         element: WebElement = self.driver.find_element(By.ID, "employeeId")

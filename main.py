@@ -1,15 +1,20 @@
-from flask import Flask, jsonify
+from flask import Flask, jsonify, request
 from flask_cors import CORS
+
+from entities.reimbursement_data import ReimbursementData
 
 from data_access_layer.dal_login_implementation import LogInDataAccessLayerImplementation
 from service_layer.serl_login_implementation import LogInServiceLayerImplementation
 from data_access_layer.dal_reimbursement_total import ReimbursementTotalsDataImplementation
 from service_layer.serl_reimbursement_total import ReimbursementTotalsServiceImplementation
+from data_access_layer.employee_dao_imp import EmployeeDAOImp
+from service_layer.employee_serl_imp import EmployeeServiceLayerImp
 
 from utilities.custom_exceptions.employee_not_found import EmployeeNotFound
 from utilities.custom_exceptions.incorrect_password import IncorrectPassword
 from utilities.custom_exceptions.total_is_zero import TotalIsZero
 from utilities.custom_exceptions.no_history import NoHistory
+from utilities.custom_exceptions.bad_reimbursement_request import BadReimbursementRequest
 
 app: Flask = Flask(__name__)
 CORS(app)
@@ -18,6 +23,8 @@ login_data_access_object = LogInDataAccessLayerImplementation()
 login_service = LogInServiceLayerImplementation(login_data_access_object)
 totals_data_implementation = ReimbursementTotalsDataImplementation()
 totals_service_implementation = ReimbursementTotalsServiceImplementation(totals_data_implementation)
+employee_dao = EmployeeDAOImp()
+employee_serl = EmployeeServiceLayerImp(employee_dao)
 
 # Basic hello world test to ensure app is running and connected (for testing with Postman).
 @app.route("/greeting", methods=["GET"])
@@ -93,5 +100,28 @@ def get_all_reimbursements(employee_id: str):
     except NoHistory as exception:
         message = {"Error Message:": str(exception)}
         return jsonify(message), 400
+
+@app.route("/reimbursements/", methods=["POST"])
+def submit_reimbursement_record():
+    try:
+        reimbursement_data_info = request.get_json()
+        reimbursement = ReimbursementData(
+            "0",
+            reimbursement_data_info["employeeId"],
+            reimbursement_data_info["amount"],
+            reimbursement_data_info["reason"],
+            reimbursement_data_info["reimbursementComment"],
+            "pending"
+        )
+        result = employee_serl.serl_submit_reimbursement(reimbursement)
+        dictionary_reimbursement = result.reimbursementdata_to_dictionary()
+        reimbursement_json = jsonify(dictionary_reimbursement)
+        return reimbursement_json, 201
+    except BadReimbursementRequest as e:
+        error_message = {
+            "message": str(e)
+        }
+        error_json = jsonify(error_message)
+        return error_json, 404
 
 app.run()

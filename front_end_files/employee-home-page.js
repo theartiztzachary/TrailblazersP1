@@ -16,8 +16,6 @@ async function requestHistory() {
     if (response.status === 200) {
         const data = await response.json();
         populateHistory(data);
-    } else {
-        alert('Something went wrong :/');
     }
 }
 
@@ -50,8 +48,6 @@ async function requestPending() {
     if (response.status === 200) {
         const data = await response.json();
         populatePending(data);
-    } else {
-        alert('Something went wrong :/');
     }
 }
 
@@ -65,8 +61,6 @@ async function requestApproved() {
     if (response.status === 200) {
         const data = await response.json();
         populateApproved(data);
-    } else {
-        alert('Something went wrong :/');
     }
 }
 
@@ -76,5 +70,13 @@ function populateApproved(data) {
 
 function logoutFunction() {
     window.sessionStorage.clear;
-    window.location.href = "landing-page.html"
+    window.location.href = "landing-page.html";
+}
+
+function toSubmitPage() {
+    window.location.href = "submit-reimbursement.html";
+}
+
+function toCancelPage() {
+    window.location.href = "cancel-reimbursement.html";
 }

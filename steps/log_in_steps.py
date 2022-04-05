@@ -5,7 +5,7 @@ from selenium.webdriver.support.expected_conditions import title_contains
 
 @given(u'I am on the Log In home page')
 def step_impl(context):
-    context.driver.get("file:///C:/Users/pompa/Desktop/HTML_Stuff/for-fetchP1.html")
+    context.driver.get("file:///D:/PythonProjects/TrailblazersP1/front_end_files/landing-page.html")
 
 
 @when(u'I enter {employeeUsername} into the input bar')
@@ -18,7 +18,7 @@ def step_impl(context, employeePassword: str):
     context.log_in_home.employee_password_bar().send_keys(employeePassword)
 
 
-@when(u'I click the Submit button')
+@when(u'I click the login button')
 def step_impl(context):
     context.log_in_home.submit_button().click()
 
