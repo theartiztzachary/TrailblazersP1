@@ -9,6 +9,17 @@
       1. data access layer -> dal
       2. service layer -> serl
       3. API layer -> api
+5. Database- Reimbursement reasons are the following:
+   1. gas
+   2. hotel
+   3. flying
+   4. dining
+   5. office equipment
+   6. etc
+6. Database - Status codes are the following:
+   1. pending
+   2. approved
+   3. canceled
 
 ###Reporting and Fixing Bugs
 1. Bugs should be reported via GitHub's Issues framework.
