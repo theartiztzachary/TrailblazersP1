@@ -21,7 +21,7 @@ Feature: I can log in to my account on the reimbursement website and see my reim
     When I should be on a page with the title Home Screen
     Then I can see the first entry ID is <reimbursement_id>
 
-    Examples: # fill out during final lockdown
+    Examples: #fill out during final lockdown
 
   Scenario Outline:
     Given I am on the Log In home page

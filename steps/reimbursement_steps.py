@@ -1,4 +1,4 @@
-from behave import given, when, then
+from behave import when, then
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support.expected_conditions import text_to_be_present_in_element
 from selenium.webdriver.common.by import By
