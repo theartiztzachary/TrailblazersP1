@@ -10,8 +10,8 @@
     <h3 id="context">Enter your reimbursement ID number below to start the cancel reimbursement process.</h3>
 
     <div id="idContainer">
-        <input type="number" placeholder="Enter reimbursement ID number here!" id="reimbursementID">
-        <button id="submitButton" onclick="sendReimbursementId()"> Submit</button>
+        <input type="number" placeholder="Enter reimbursement ID number here!" id="reimbursement_id">
+        <button id="submitButton" onclick="submit_cancel_reimbursement_button()">Submit</button>
     </div>
 
 </body>
@@ -53,8 +53,13 @@
         }
     }
 
+    alert(`Cancel successful for reimbursement ID number ${window.localStorage.getItem("reimbursement_id")}`);
+
+    function clearLocalStorage()
+    {
+        window.localStorage.removeItem("reimbursement_id");
+        window.location.href = "employee_home_page.html"
+    }
     
-
-
 </script>
 </html>

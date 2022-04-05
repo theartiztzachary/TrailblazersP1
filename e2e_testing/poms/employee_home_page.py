@@ -7,11 +7,11 @@ class EmployeeHomePage:
     def __init__(self, driver: WebDriver):
         self.driver = driver
 
-    def cancel_reimbursement_button(self):
-        return self.driver.find_element(By.ID, "cancel-button")
+    def cancel_reimbursement_page(self):
+        return self.driver.find_element(By.ID, "cancelButton")
 
     def reimbursement_id(self):
-        return self.driver.find_element(By.ID, "reimbursementID")
+        return self.driver.find_element(By.ID, "reimbursement_id")
 
-    def submit_button(self):
+    def submit_cancel_reimbursement_button(self):
         return self.driver.find_element(By.ID, "submitButton")

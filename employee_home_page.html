@@ -2,15 +2,13 @@
 <html lang="en">
 <head>
     <title>Trailblazers Reimbursement Systems</title>
-    <link rel="stylesheet" href="employee-home-page-css.css">
+    <link>
 </head>
 <body onload="populatePage()">
     <h1 id="welcome-message"></h1>
 
     <div class="container">
-        <button id="submit-button" onclick="toSubmitPage()">Submit a Reimbursement</button>
-        <button id="cancel-button" onclick="toCancelPage()">Cancel a Reimbursement</button>
-        <button id="logout-button" onclick="logoutFunction()">Logout</button>
+        <button id="cancelButton" onclick="cancel_reimbursement_page()">Cancel a Reimbursement</button>
     </div>
 
     <div class="container">
@@ -48,7 +46,17 @@
         </table>
     </div>
 
-<script src="employee-home-page.js"></script>
+<script>
+/* Implement cancel_reimbursement_button() here--> */
+const input = document.getElementById("cancelButton");
+
+function cancel_reimbursement_page()
+{
+    window.localStorage.setItem("cancelButton", input.value);
+    window.location.href = "cancel_reimbursement_home_page.html";
+}
+    
+</script>
 
   
     

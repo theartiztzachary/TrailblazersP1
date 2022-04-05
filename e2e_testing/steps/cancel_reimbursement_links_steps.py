@@ -1,23 +1,22 @@
 from behave import given, when, then
+from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support.expected_conditions import title_contains
 
 
 @given(u'I am on the employee home page')
 def step_impl(context):
-    # context.driver.get("employee-home-page.html")
     context.driver.get("file:///C:/Users/Tashawn/Desktop/TrailblazersP1/employee_home_page.html")
 
 
-@when(u'I click on the cancel reimbursement option')
+@when(u'I click on the cancel reimbursement link')
 def step_impl(context):
-    context.driver.get("http://localhost:63342/TrailblazersP1/cancel_reimbursement_home_page(for_fetch("
-                       ")).html?_ijt=61s5gvbsq52a5et8ea206qvmko")
+    context.employee_home_page.cancel_reimbursement_page().click()
 
 
-@when(u'I click the submit button')
+@then(u'I should be on the cancel reimbursement home page')
 def step_impl(context):
-    context.driver.submit_button().click()
+    WebDriverWait(context.driver, 2).until(title_contains("Trailblazers Reimbursement Systems"))
+    context.employee_home_page.submit_cancel_reimbursement_button().click()
 
 
-@then(u'I should be on the cancel reimbursement main page')
-def step_impl(context):
-    assert context.driver.title == "Cancel Reimbursement"
+

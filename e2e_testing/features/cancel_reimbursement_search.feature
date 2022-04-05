@@ -8,5 +8,6 @@ Feature: I can submit a reimbursement request
 
     Examples:
       | reimbursement_id | title    |
-      | 1000             | Cancel Reimbursement |
+      | 1000             | Trailblazers Reimbursement Systems |
 
+# this is the cancel reimbursement home page
