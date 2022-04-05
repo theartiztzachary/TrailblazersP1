@@ -5,46 +5,14 @@
     <link>
 </head>
 <body onload="populatePage()">
-    <h1 id="welcome-message"></h1>
+    <h1 id="welcome-message">Welcome to the Trailblazers Reimbursement System</h1>
+    <h2 id="welcome-message2">Click an option below to begin</h2>
+
 
     <div class="container">
         <button id="cancelButton" onclick="cancel_reimbursement_page()">Cancel a Reimbursement</button>
     </div>
-
-    <div class="container">
-        <table>
-            <thead>
-                <tr>
-                    <th>Request ID</th>
-                    <th>Amount</th>
-                    <th>Reason</th>
-                    <th>Note</th>
-                    <th>Status</th>
-                </tr>
-            </thead>
-            <tbody id="history-table">
-
-            </tbody>
-        </table>
-    </div>
     
-    <div class="container">
-        <table>
-            <thead>
-                <tr>
-                    <th>Pending</th>
-                    <th>Approved</th>
-                </tr>
-            </thead>
-                <tr>
-                    <td id="pending-total"></td>
-                    <td id="approved-total"></td>
-                </tr>
-            <tbody>
-            
-            </tbody>
-        </table>
-    </div>
 
 <script>
 /* Implement cancel_reimbursement_button() here--> */

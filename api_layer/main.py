@@ -28,5 +28,5 @@ def cancel_reimbursement_request(reimbursement_id: int):
         return error_json, 400
 
 
-# app.run()
-app.run(debug=True)
+app.run()
+#app.run(debug=True)

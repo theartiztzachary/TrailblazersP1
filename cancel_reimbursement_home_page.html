@@ -33,9 +33,9 @@
     cancelReimbursement.value ="";
     }
 
-    async function sendReimbursementID()
+    async function submit_cancel_reimbursement_button()
     {
-        const response = await fetch(
+        let response = await fetch(
             `http://localhost:5000/cancel/${cancelReimbursement.value}`,
             {
                 method:"GET"
@@ -46,14 +46,15 @@
             /* message = await response.json() */
             message = await response.text()
             /* alert(message.message); */
-            alert(message);
+            /*alert(message);*/
+            alert(`Cancel successful for reimbursement ID number ${window.localStorage.getItem("reimbursement_id")}`);
         } else 
         {
             alert("Something went wrong, please try again");
         }
     }
 
-    alert(`Cancel successful for reimbursement ID number ${window.localStorage.getItem("reimbursement_id")}`);
+    
 
     function clearLocalStorage()
     {
