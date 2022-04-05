@@ -19,7 +19,7 @@
 
     /*Dynamic Content*/
     
-    const cancelReimbursement = document.getElementById("submitButton")
+    const cancelReimbursement = document.getElementById("reimbursement_id")
 
     /*request input of reimbursement ID here*/
 
@@ -35,6 +35,8 @@
 
     async function submit_cancel_reimbursement_button()
     {
+        // console.log(cancelReimbursement.value);
+
         let response = await fetch(
             `http://localhost:5000/cancel/${cancelReimbursement.value}`,
             {
@@ -47,7 +49,7 @@
             message = await response.text()
             /* alert(message.message); */
             /*alert(message);*/
-            alert(`Cancel successful for reimbursement ID number ${window.localStorage.getItem("reimbursement_id")}`);
+            alert(`Cancel successful for reimbursement ID number ${cancelReimbursement.value}`);
         } else 
         {
             alert("Something went wrong, please try again");
