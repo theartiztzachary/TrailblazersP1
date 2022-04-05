@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <title>Submit Reimbursement</title>
+</head>
+<body>
+    <input type="number" placeholder="Employee_ID" id="employeeId">
+    <br>
+    <input type="number" placeholder="Amount" id="amount">
+    <br>
+    <input type="text" placeholder="Reason" id="reason">
+    <br>
+    <input type="text" placeholder="Reimbursement_Comment" id="reimbursementComment">
+    <br>
+    <button onclick="submitReimbursement()" id="submitReimbursement">Submit</button>
+    
+</body>
+<script>
+    const reimbursementId = 0;
+    const employeeIdInput = document.getElementById("employeeId");
+    const amountInput = document.getElementById("amount");
+    const reasonInput = document.getElementById("reason");
+    const reimbursementReasonInput = document.getElementById("reimbursementComment");
+    const statusCode = "Pending";
+
+    let reimburesementRequest = {
+        "employeeId": null,
+        "amount": null,
+        "reason": null,
+        "reimbursementComment": null
+    }
+
+  
+
+    async function submitReimbursement(){
+
+        console.log(reimbursementId);
+        reimburesementRequest.employeeId = employeeIdInput.value;
+        console.log(employeeIdInput.value);
+        reimburesementRequest.amount = amountInput.value;
+        console.log(amountInput.value);
+        reimburesementRequest.reason = reasonInput.value;
+        console.log(reasonInput.value);
+        reimburesementRequest.reimbursementComment = reimbursementReasonInput.value;
+        console.log(reimbursementReasonInput.value);
+        console.log(statusCode);
+        
+    
+        let config = {
+                method:"POST",
+                headers:{'Content-Type':"application/json"},
+                body: JSON.stringify(reimburesementRequest)
+            }
+
+            const submit = await fetch("http://localhost:5000/reimbursements/", config);
+            if(submit.status === 201){
+                reimbursement = await submit.text();
+                alert(reimbursement);
+            } else {
+                alert("Oops Something went wrong");
+            }
+    }
+
+
+</script>
+</html>
