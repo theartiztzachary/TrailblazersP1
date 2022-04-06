@@ -1,12 +1,12 @@
-from behave import when, then
+from behave import when
 from selenium.webdriver.support.wait import WebDriverWait
-from selenium.webdriver.support.expected_conditions import title_contains
+from selenium.webdriver.support.expected_conditions import title_contains, alert_is_present
 
 @when(u'I click the Submit Reimbursement button')
 def step_impl(context):
     context.submit_home.start_submit().click()
 
-@when(u'I should be on a page with the title Home Screen')
+@when(u'I am on the Submit Reimbursement page')
 def step_impl(context):
     WebDriverWait(context.driver, 1).until(title_contains("Trailblazers Reimbursement Systems - Submit Reimbursement"))
     assert context.driver.title == "Trailblazers Reimbursement Systems - Submit Reimbursement"
@@ -23,7 +23,7 @@ def step_impl(context, reason: str):
 def step_impl(context, reimbursementComment: str):
     context.submit_home.submit_reimbursement_comment().send_keys(reimbursementComment)
 
-@then(u'I click Submit button')
+@when(u'I click Submit button')
 def step_impl(context):
     context.submit_home.submit_button().click()
 

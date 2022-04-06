@@ -25,7 +25,6 @@ async function submitReimbursement(){
         const submit = await fetch("http://localhost:5000/reimbursements/", config);
         if(submit.status === 201){
             let reimbursement = await submit.text();
-            alert(reimbursement);
             toHomePage()
         } else {
             alert("Oops Something went wrong");

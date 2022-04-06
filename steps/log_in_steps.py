@@ -23,7 +23,7 @@ def step_impl(context):
     context.log_in_home.submit_button().click()
 
 
-@then(u'I should be on a page with the title Home Screen')
+@then(u'I should be on the employee home page')
 def step_impl(context):
     WebDriverWait(context.driver, 1).until(title_contains("Trailblazers Reimbursement Systems - Home"))
     assert context.driver.title == "Trailblazers Reimbursement Systems - Home"

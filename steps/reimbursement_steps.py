@@ -4,7 +4,7 @@ from selenium.webdriver.support.expected_conditions import text_to_be_present_in
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.expected_conditions import title_contains
 
-@when(u'I should be on a page with the title Home Screen')
+@when(u'I am on the employee home page')
 def step_impl(context):
     WebDriverWait(context.driver, 1).until(title_contains("Trailblazers Reimbursement Systems - Home"))
     assert context.driver.title == "Trailblazers Reimbursement Systems - Home"
