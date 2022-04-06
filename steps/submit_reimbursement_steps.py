@@ -5,7 +5,7 @@ from selenium.webdriver.support.expected_conditions import title_contains
 
 @given(u'I am on the Submit Reimbursement page')
 def step_impl(context):
-    context.driver.get("file:///C:/Users/master/Desktop/Html_stuff/Day3%20Javascript/for_submitP1.html")
+    context.driver.get("file:///D:/PythonProjects/TrailblazersP1/for_submitP1.html")
 
 
 @when(u'I enter {employeeId} in the EmployeeId textbox')
@@ -35,6 +35,6 @@ def step_impl(context):
 
 @then(u'I should be on the Reimbursement home page')
 def step_impl(context):
-    WebDriverWait(context.driver, 1).until(title_contains("Reimbursement Home"))
+    WebDriverWait(context.driver, 2).until(title_contains("Reimbursement Home"))
     assert context.driver.title == "Reimbursement Home"
 

@@ -8,7 +8,7 @@ from selenium.webdriver.common.by import By
 def step_impl(context):
     context.driver.get("file:///D:/PythonProjects/TrailblazersP1/reimb_front_end/reimbursement-history-test.html")
 
-@when(u'I enter {employee_id} into the input bar')
+@when(u'I enter {employee_id} into the employee id bar')
 def step_impl(context, employee_id: int):
     context.table_test_home.input_bar().send_keys(employee_id)
 
