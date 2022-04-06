@@ -93,3 +93,5 @@ This will be filled out after we are introduced to them in class.
 - Do not test for if the given username or password is a string or not, because the front end should be sending these inputs as strings to the system.
 - Do not test the data type of the reason, because the front end should be sending these inputs as strings to the system.
 - Do not test validations of inputs for sum of completed and/or pending reimbursements because those functions are handled without user input.
+
+# behave /folder_path/file.feature --outfile /path_to_log/name.log
