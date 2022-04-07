@@ -15,10 +15,10 @@ class ReimbursementServiceImp(ReimbursementServiceInterface):
     # catch reimbursement id DNE, reimbursement id != int, status code is already canceled,
     def service_cancel_reimbursement_request(self, reimbursement_id):
         try:
-            result1 = int(reimbursement_id)
-        except ValueError:
+            result1 = int(reimbursement_id)  # changes string int to int int (ex changes "one" to 1
+        except ValueError:  # if it cannot change from string to int then it's an error -> raise error
             raise NonNumericReimbursementID("Non-numeric ID")
-        result = self.reimbursement_dao.cancel_reimbursement_request(result1)
+        result = self.reimbursement_dao.cancel_reimbursement_request(result1)  # if try is successful or correct int was provided, programs jumps to line below
         if result is 1:
             return result
         else:
