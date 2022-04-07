@@ -15,10 +15,11 @@ def step_impl(context, reimbursement_id: int):
 
 @when(u'I click the submit button')
 def step_impl(context):
-    context.driver.submit_cancel_reimbursement_button().click()
+    context.employee_home_page.submit_cancel_reimbursement_button().click()
 
 
 @then(u'I should be on a page with the title {title}')
 def step_impl(context, title: str):
-    WebDriverWait(context.driver, 1).until(title_contains("Trailblazers Reimbursement Systems"))
+    # WebDriverWait(context.driver, 1).until(title_contains("Trailblazers Reimbursement Systems"))
+    WebDriverWait(context.driver, 3).until(title_contains("Trailblazers Reimbursement Systems"))
     assert context.driver.title == title

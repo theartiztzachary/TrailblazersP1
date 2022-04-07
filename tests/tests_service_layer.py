@@ -2,10 +2,10 @@ from custom_exceptions.id_not_found import IdNotFound
 from custom_exceptions.non_numeric_reimbursement_id import NonNumericReimbursementID
 from data_access_layer.reimbursement_dao_imp import ReimbursementDAOImp
 from service_layer.reimbursement_service_imp import ReimbursementServiceImp
-from unittest.mock import patch, MagicMock
+from unittest.mock import MagicMock
 
-reimbursement_dao = ReimbursementDAOImp()
-reimbursement_service = ReimbursementServiceImp(reimbursement_dao)
+test_reimbursement_dao = ReimbursementDAOImp()
+test_reimbursement_service = ReimbursementServiceImp(test_reimbursement_dao)
 
 
 # Positive:
@@ -14,19 +14,19 @@ reimbursement_service = ReimbursementServiceImp(reimbursement_dao)
 
 def test_reimbursement_id_success():
     try:
-        reimbursement_dao.cancel_reimbursement_request = MagicMock(return_value=0)
+        test_reimbursement_service.service_cancel_reimbursement_request = MagicMock(reurn_value=0)
         assert True
     except IdNotFound as e:
         assert str(e) == "Incorrect ID given"
 
 
 # Negative:
-# Test that when you give a reimbursement ID that does not exist, an error is raised. (Mocked)
+# Test that when you give a reimbursement ID that does not exist, an error is raised.
 
 def test_catch_incorrect_reimbursement_id():
     try:
-        reimbursement_service.service_cancel_reimbursement_request = MagicMock(return_value=-1)
-        assert True
+        test_reimbursement_service.service_cancel_reimbursement_request(-1)
+        assert "Reimbursement ID number does not exist in the database"
     except IdNotFound as e:
         assert str(e) == "Incorrect ID given"
 
@@ -36,7 +36,7 @@ def test_catch_incorrect_reimbursement_id():
 
 def test_catch_non_numeric_reimbursement_id():
     try:
-        reimbursement_service.service_cancel_reimbursement_request("Zero")
-        assert True
+        test_reimbursement_service.service_cancel_reimbursement_request("Zero")
+        assert "Reimbursement Id must be and integer. Please try again."
     except NonNumericReimbursementID as e:
         assert str(e) == "Reimbursement ID needs to be a number"

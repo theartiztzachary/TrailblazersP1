@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 from custom_exceptions.id_not_found import IdNotFound
+from custom_exceptions.non_numeric_reimbursement_id import NonNumericReimbursementID
 from data_access_layer.reimbursement_dao_imp import ReimbursementDAOImp
 from service_layer.reimbursement_service_imp import ReimbursementServiceImp
 
@@ -28,5 +29,5 @@ def cancel_reimbursement_request(reimbursement_id: int):
         return error_json, 400
 
 
-app.run()
-#app.run(debug=True)
+# app.run()
+app.run(debug=True)

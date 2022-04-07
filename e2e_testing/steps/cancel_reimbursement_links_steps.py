@@ -15,7 +15,7 @@ def step_impl(context):
 
 @then(u'I should be on the cancel reimbursement home page')
 def step_impl(context):
-    WebDriverWait(context.driver, 2).until(title_contains("Trailblazers Reimbursement Systems"))
+    WebDriverWait(context.driver, 2).until(title_contains("Cancel Reimbursement"))
     context.employee_home_page.submit_cancel_reimbursement_button().click()
 
 

@@ -45,24 +45,22 @@
         )
         if(response.status == 200)
         {
-            /* message = await response.json() */
             message = await response.text()
-            /* alert(message.message); */
-            /*alert(message);*/
             alert(`Cancel successful for reimbursement ID number ${cancelReimbursement.value}`);
-        } else 
+        } 
+        else 
         {
             alert("Something went wrong, please try again");
         }
-    }
 
-    
-
-    function clearLocalStorage()
+        function clearLocalStorage()
     {
         window.localStorage.removeItem("reimbursement_id");
         window.location.href = "employee_home_page.html"
     }
+
+    }
+
     
 </script>
 </html>

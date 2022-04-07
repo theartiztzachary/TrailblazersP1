@@ -1,0 +1,2 @@
+class StatusCodeUpdateFailure(Exception):
+    pass

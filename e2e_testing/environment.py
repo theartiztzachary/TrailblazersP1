@@ -8,7 +8,7 @@ from e2e_testing.poms.employee_home_page import EmployeeHomePage
 
 def before_all(context: Context):
     context.driver = webdriver.Chrome("e2e_testing/chromedriver.exe")
-    context.employee_home_page = EmployeeHomePage(context.driver)
+    context.employee_home_page = EmployeeHomePage(context.driver)  # this is the POM
     context.driver.implicitly_wait(1)
 
 
