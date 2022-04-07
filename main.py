@@ -18,6 +18,7 @@ from utilities.custom_exceptions.total_is_zero import TotalIsZero
 from utilities.custom_exceptions.no_history import NoHistory
 from utilities.custom_exceptions.bad_reimbursement_request import BadReimbursementRequest
 from custom_exceptions.id_not_found import IdNotFound
+from custom_exceptions.non_numeric_reimbursement_id import NonNumericReimbursementID
 
 app: Flask = Flask(__name__)
 CORS(app)
@@ -137,6 +138,12 @@ def cancel_reimbursement_request(reimbursement_id: int):
         result_json = jsonify(result_dictionary)
         return result_json, 200
     except IdNotFound as e:
+        error_message = {
+            "message": str(e)
+        }
+        error_json = jsonify(error_message)
+        return error_json, 400
+    except NonNumericReimbursementID as e:
         error_message = {
             "message": str(e)
         }
