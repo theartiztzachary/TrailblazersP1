@@ -13,11 +13,9 @@ test_reimbursement_service = ReimbursementServiceImp(test_reimbursement_dao)
 # there is no error, and it returns itself & a confirmation at end (Mock).
 
 def test_reimbursement_id_success():
-    try:
-        test_reimbursement_service.service_cancel_reimbursement_request = MagicMock(reurn_value=0)
-        assert True
-    except IdNotFound as e:
-        assert str(e) == "Incorrect ID given"
+    test_reimbursement_service.reimbursement_dao.cancel_reimbursement_request = MagicMock(return_value=1)
+    result = test_reimbursement_service.service_cancel_reimbursement_request(3)
+    assert result == 1
 
 
 # Negative:
@@ -25,10 +23,11 @@ def test_reimbursement_id_success():
 
 def test_catch_incorrect_reimbursement_id():
     try:
+        test_reimbursement_service.reimbursement_dao.cancel_reimbursement_request = MagicMock(return_value=0)
         test_reimbursement_service.service_cancel_reimbursement_request(-1)
-        assert "Reimbursement ID number does not exist in the database"
+        assert False
     except IdNotFound as e:
-        assert str(e) == "Incorrect ID given"
+        assert str(e) == "Incorrect ID"
 
 
 # Negative:
@@ -36,7 +35,13 @@ def test_catch_incorrect_reimbursement_id():
 
 def test_catch_non_numeric_reimbursement_id():
     try:
-        test_reimbursement_service.service_cancel_reimbursement_request("Zero")
-        assert "Reimbursement Id must be and integer. Please try again."
+        result = test_reimbursement_service.service_cancel_reimbursement_request("Zero")
+        assert result is False
     except NonNumericReimbursementID as e:
-        assert str(e) == "Reimbursement ID needs to be a number"
+        assert str(e) == "Non-numeric ID"
+
+
+
+
+
+

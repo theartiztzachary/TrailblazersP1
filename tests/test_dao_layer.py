@@ -14,17 +14,9 @@ reimbursement_service = ReimbursementServiceImp(reimbursement_dao)
 # Positive:
 # Test that when you give a reimbursement ID that exists, returns True
 
-# ****************** HELP ###########
 def test_reimbursement_id_exist():
-    reimbursement_dao.get_reimbursement_id_number(33)
-    assert True  # this does not work
-
-
-# Positive
-# Test that the status code is updated in the database by reimbursement id
-def test_status_code_update_success():
-    reimbursement_dao.get_status_code_update(33)
-    assert True
+    result = reimbursement_dao.cancel_reimbursement_request(33)
+    assert result is 1
 
 
 # Positive
@@ -39,13 +31,8 @@ def test_status_code_update_success():
 # Test that when you give a reimbursement ID that does not exist, an empty return is passed up to the service layer.
 
 def test_non_existent_id():
-    # try:
-    #     reimbursement_dao.cancel_reimbursement_request(-1)
-    #     assert "Invalid ID"
-    # except IdNotFound as e:
-    #     assert str(e) == "Invalid ID"
-    reimbursement_dao.cancel_reimbursement_request(-1)
-    assert "Invalid ID"
+    result = reimbursement_dao.cancel_reimbursement_request(-1)
+    assert result == 0
 
 
 # Negative
@@ -53,8 +40,5 @@ def test_non_existent_id():
 # this test would be necessary if cancel reimbursement request was already processed
 
 def test_status_code_update_failure():
-    # result = reimbursement_dao.get_status_code_update(31)
-    # if result == "Error! Your cancel reimbursement request was already processed!":
-    #     raise StatusCodeUpdateFailure("Error! Your cancel reimbursement request was already processed!")
-    reimbursement_dao.cancel_reimbursement_request(-1)
-    assert "Error! Your cancel reimbursement request was already processed!"
+    result = reimbursement_dao.cancel_reimbursement_request(33)
+    assert result == 0

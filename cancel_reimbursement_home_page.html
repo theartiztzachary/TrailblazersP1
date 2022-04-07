@@ -47,17 +47,14 @@
         {
             message = await response.text()
             alert(`Cancel successful for reimbursement ID number ${cancelReimbursement.value}`);
+            
+            window.location.href = "employee_home_page.html"
         } 
         else 
         {
             alert("Something went wrong, please try again");
         }
 
-        function clearLocalStorage()
-    {
-        window.localStorage.removeItem("reimbursement_id");
-        window.location.href = "employee_home_page.html"
-    }
 
     }
 
