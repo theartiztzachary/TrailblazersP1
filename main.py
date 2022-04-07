@@ -9,12 +9,15 @@ from data_access_layer.dal_reimbursement_total import ReimbursementTotalsDataImp
 from service_layer.serl_reimbursement_total import ReimbursementTotalsServiceImplementation
 from data_access_layer.employee_dao_imp import EmployeeDAOImp
 from service_layer.employee_serl_imp import EmployeeServiceLayerImp
+from data_access_layer.reimbursement_dao_imp import ReimbursementDAOImp
+from service_layer.reimbursement_service_imp import ReimbursementServiceImp
 
 from utilities.custom_exceptions.employee_not_found import EmployeeNotFound
 from utilities.custom_exceptions.incorrect_password import IncorrectPassword
 from utilities.custom_exceptions.total_is_zero import TotalIsZero
 from utilities.custom_exceptions.no_history import NoHistory
 from utilities.custom_exceptions.bad_reimbursement_request import BadReimbursementRequest
+from custom_exceptions.id_not_found import IdNotFound
 
 app: Flask = Flask(__name__)
 CORS(app)
@@ -25,6 +28,8 @@ totals_data_implementation = ReimbursementTotalsDataImplementation()
 totals_service_implementation = ReimbursementTotalsServiceImplementation(totals_data_implementation)
 employee_dao = EmployeeDAOImp()
 employee_serl = EmployeeServiceLayerImp(employee_dao)
+reimbursement_dao = ReimbursementDAOImp()
+reimbursement_service = ReimbursementServiceImp(reimbursement_dao)
 
 # Basic hello world test to ensure app is running and connected (for testing with Postman).
 @app.route("/greeting", methods=["GET"])
@@ -123,5 +128,19 @@ def submit_reimbursement_record():
         }
         error_json = jsonify(error_message)
         return error_json, 404
+
+@app.route("/cancel/<reimbursement_id>", methods=["GET"])  # or /cancel/employee_id/reimbursement_id"
+def cancel_reimbursement_request(reimbursement_id: int):
+    try:
+        result = reimbursement_service.service_cancel_reimbursement_request(reimbursement_id)
+        result_dictionary = {"Canceled Request": result}
+        result_json = jsonify(result_dictionary)
+        return result_json, 200
+    except IdNotFound as e:
+        error_message = {
+            "message": str(e)
+        }
+        error_json = jsonify(error_message)
+        return error_json, 400
 
 app.run()

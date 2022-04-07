@@ -29,8 +29,7 @@ def step_impl(context):
 
 @when(u'I see an alert')
 def step_impl(context):
-    WebDriverWait(context.driver, 1).until(alert_is_present())
-    context.submit_home.get_alert()
+    WebDriverWait(context.driver, 2).until(alert_is_present())
 
 @when(u'I accept the alert')
 def step_impl(context):
