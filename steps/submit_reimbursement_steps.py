@@ -27,4 +27,13 @@ def step_impl(context, reimbursementComment: str):
 def step_impl(context):
     context.submit_home.submit_button().click()
 
+@when(u'I see an alert')
+def step_impl(context):
+    WebDriverWait(context.driver, 1).until(alert_is_present())
+    context.submit_home.get_alert()
+
+@when(u'I accept the alert')
+def step_impl(context):
+    context.submit_home.get_alert().accept()
+
 

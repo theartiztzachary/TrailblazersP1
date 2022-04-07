@@ -5,8 +5,6 @@ let employeeInformation = {"employeeUsername":null, "employeePassword":null};
 
 async function logIn() {
     let requestURL = `http://localhost:5000/employee/${employeeUsername.value}/${employeePassword.value}/`
-    employeeInformation.employeeUsername = employeeUsername.value;
-    employeeInformation.employeePassword = employeePassword.value;
 
     let config = {
         method:"GET"  

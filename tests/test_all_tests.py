@@ -53,11 +53,11 @@ def test_select_employee_information_incorrect_password(): #MOCKED
 
 def test_success_data_completed_total(): # Double check after final lockdown.
     money_total = test_totals_data_implementation.get_completed_reimbursement_total(1)
-    assert money_total == (Decimal('215'),)
+    assert money_total == (Decimal('140.00'),)
 
 def test_success_data_pending_total(): # Double check after final lockdown.
     money_total = test_totals_data_implementation.get_pending_reimbursement_total(2)
-    assert money_total == (Decimal('1009.18'),)
+    assert money_total == (Decimal('1172.49'),)
 
 def test_success_service_completed_total():
     test_totals_service_implementation.data_implementation.get_completed_reimbursement_total = MagicMock(return_value=(Decimal('500'),))

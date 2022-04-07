@@ -30,3 +30,7 @@ class SubmitHome:
         element: WebElement = self.driver.find_element(By.ID, "submitReimbursement")
         return element
 
+    def get_alert(self):
+        return self.driver.switch_to.alert
+
+
