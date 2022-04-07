@@ -1,0 +1,2 @@
+class NonNumericReimbursementID(Exception):
+    pass
