@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Trailblazers Reimbursement Systems - Submit Reimbursement</title>
+    <link rel="stylesheet" href="submit-reimbursement-css.css">
+</head>
+<body>
+    <h1>Submit A Reimbursement</h1>
+    <div class="container">
+        <input type="number" placeholder="Amount" id="amount">
+        <select id="reason">
+            <option value="">--Select a reason--</option>
+            <option value="gas">Gas</option>
+            <option value="hotel">Hotel</option>
+            <option value="flying">Flying</option>
+            <option value="dining">Dining</option>
+            <option value="office equipment">Office Equipment</option>
+            <option value="etc">Etc.</option>
+        </select>
+        <input type="text" placeholder="Comment" id="reimbursementComment">
+        <button onclick="submitReimbursement()" id="submitReimbursement">Submit</button>
+    </div>
+
+    <script src="submit-reimbursement.js"></script>
+</body>
+</html>

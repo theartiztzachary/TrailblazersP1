@@ -1,10 +1,10 @@
 # Test Plan Document
 
 ##Technologies Used
-- Languages: Python, PostgreSQL
-- Packages: PsycoPG[Binary], Pytest, Flask
-- IDE: PyCharm
-- Tertiary Programs: DBeaver, Postman, AWS Database, AWS E2, GitHub, GitBash, Zoom, Discord, [front end placeholder :)]]
+- Languages: Python, PostgreSQL, HTML, CSS, Javascript
+- Packages: PsycoPG[Binary], Pytest, Flask, Flask-Cors
+- IDE: PyCharm, Visual Studio Code
+- Tertiary Programs: DBeaver, Postman, AWS Database, AWS E2, GitHub, GitBash, Zoom, Discord
 
 ##Deadlines
 
@@ -13,6 +13,8 @@
   - Interface, implementation, and tests should have methods named with pass, no actual implementations needed.
 
 ###Sprint 2 End: April 1st, 2022
+For the end of this week/sprint, we will have the Javascript scripts set up for each functionality.
+  - Each person is responsible for the Javascript that is associated with their assigned function.
 
 ###Sprint 3 End: April 7th, 2022
 
@@ -91,3 +93,5 @@ This will be filled out after we are introduced to them in class.
 - Do not test for if the given username or password is a string or not, because the front end should be sending these inputs as strings to the system.
 - Do not test the data type of the reason, because the front end should be sending these inputs as strings to the system.
 - Do not test validations of inputs for sum of completed and/or pending reimbursements because those functions are handled without user input.
+
+# behave /folder_path/file.feature --outfile /path_to_log/name.log

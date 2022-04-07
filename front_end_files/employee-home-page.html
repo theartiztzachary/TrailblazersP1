@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Trailblazers Reimbursement Systems - Home</title>
+    <link rel="stylesheet" href="employee-home-page-css.css">
+</head>
+<body onload="populatePage()">
+    <h1 id="welcome-message"></h1>
+
+    <div class="button-container">
+        <button id="submit-button" onclick="toSubmitPage()">Submit a Reimbursement</button>
+        <button id="cancel-button" onclick="toCancelPage()">Cancel a Reimbursement</button>
+        <button id="logout-button" onclick="logoutFunction()">Logout</button>
+    </div>
+
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Request ID</th>
+                    <th>Amount</th>
+                    <th>Reason</th>
+                    <th>Note</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+            <tbody id="history-table">
+
+            </tbody>
+        </table>
+    </div>
+    <br>
+    <br>
+    <div class="container">
+        <table>
+            <thead>
+                <tr>
+                    <th>Pending</th>
+                    <th>Approved</th>
+                </tr>
+            </thead>
+                <tr>
+                    <td id="pending-total"></td>
+                    <td id="approved-total"></td>
+                </tr>
+            <tbody>
+            
+            </tbody>
+        </table>
+    </div>
+
+    <script src="employee-home-page.js"></script>
+    
+</body>
+</html>
