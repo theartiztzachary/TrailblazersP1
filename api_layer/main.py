@@ -2,7 +2,6 @@ from flask import Flask, request, jsonify
 from flask_cors import CORS
 
 from custom_exceptions.id_not_found import IdNotFound
-from custom_exceptions.non_numeric_reimbursement_id import NonNumericReimbursementID
 from data_access_layer.reimbursement_dao_imp import ReimbursementDAOImp
 from service_layer.reimbursement_service_imp import ReimbursementServiceImp
 

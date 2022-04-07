@@ -1,2 +1,0 @@
-class StatusCodeUpdateFailure(Exception):
-    pass
