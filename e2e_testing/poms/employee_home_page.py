@@ -15,3 +15,6 @@ class EmployeeHomePage:
 
     def submit_cancel_reimbursement_button(self):
         return self.driver.find_element(By.ID, "submitButton")
+
+    def get_alert(self):
+        return self.driver.switch_to.alert
