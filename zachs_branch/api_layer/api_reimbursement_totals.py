@@ -1,11 +1,11 @@
 from flask import Flask, jsonify
 from flask_cors import CORS
 
-from data_access_layer.dal_reimbursement_total import ReimbursementTotalsDataImplementation
-from service_layer.serl_reimbursement_total import ReimbursementTotalsServiceImplementation
+from zachs_branch.data_access_layer.dal_reimbursement_total import ReimbursementTotalsDataImplementation
+from zachs_branch.service_layer.serl_reimbursement_total import ReimbursementTotalsServiceImplementation
 
-from utilities.custom_exceptions.total_is_zero import TotalIsZero
-from utilities.custom_exceptions.no_history import NoHistory
+from zachs_branch.utilities.custom_exceptions.total_is_zero import TotalIsZero
+from zachs_branch.utilities.custom_exceptions.no_history import NoHistory
 
 app: Flask = Flask(__name__)
 CORS(app)

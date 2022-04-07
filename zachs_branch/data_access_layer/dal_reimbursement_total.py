@@ -1,5 +1,5 @@
-from entities.reimbursement_totals_interfaces import ReimbursementTotalsDataInterface
-from utilities.connection_manager import connection
+from zachs_branch.entities.reimbursement_totals_interfaces import ReimbursementTotalsDataInterface
+from zachs_branch.utilities.connection_manager import connection
 
 class ReimbursementTotalsDataImplementation(ReimbursementTotalsDataInterface):
     def get_completed_reimbursement_total(self, employee_id: int) -> tuple:

@@ -1,5 +1,5 @@
 from abc import ABC, abstractmethod
-from entities.reimbursement_data import ReimbursementData
+from zachs_branch.entities.reimbursement_data import ReimbursementData
 
 # This is the interface for the data access layer's ability to grab the complete and pending reimbursement totals.
 class ReimbursementTotalsDataInterface(ABC):
