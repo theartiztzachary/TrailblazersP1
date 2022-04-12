@@ -13,14 +13,13 @@ class EmployeeServiceLayerImp(EmployeeServiceLayerInterface):
         reimbursement_amount = reimbursements.amount
         start_decimal = False
         decimal_count = 0
-        try:
+        try:   # typecasting the input
             reimbursements.reimbursement_id = int(reimbursements.reimbursement_id)
             reimbursements.employee_id = int(reimbursements.employee_id)
             reimbursements.amount = float(reimbursements.amount)
         except ValueError:
             raise BadReimbursementRequest(
                 "Please enter numeric value for reimbursement_id,employee_id and float value for amount")
-
         for i in str(reimbursement_amount):
             if i == ".":
                 start_decimal = True

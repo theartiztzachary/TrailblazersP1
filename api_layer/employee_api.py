@@ -22,7 +22,7 @@ def submit_reimbursement_record():
             reimbursement_data_info["amount"],
             reimbursement_data_info["reason"],
             reimbursement_data_info["reimbursementComment"],
-            "Pending"
+            "pending"
         )
         result = employee_serl.serl_submit_reimbursement(reimbursement)
         dictionary_reimbursement = result.reimbursementdata_to_dictionary()
